@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30-Tage Marketing Lernplan</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f0e0c;
+    --paper: #f5f0e8;
+    --accent: #c94a1a;
+    --gold: #d4a853;
+    --muted: #8a8070;
+    --card: #fff9f0;
+    --border: #e0d8c8;
+    --week1: #1a3a2a;
+    --week2: #1a2a3a;
+    --week3: #2a1a3a;
+    --week4: #3a2a1a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 60px 40px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.12;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 30%;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: var(--gold);
+    opacity: 0.08;
+  }
+  .header-label {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+  header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 6vw, 3.6rem);
+    line-height: 1.1;
+    margin-bottom: 18px;
+    position: relative;
+  }
+  header h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  header p {
+    color: #b0a898;
+    max-width: 520px;
+    font-size: 15px;
+  }
+  .header-badges {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+  }
+  .badge {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  /* RESOURCES SECTION */
+  .resources {
+    padding: 50px 40px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    margin-bottom: 6px;
+  }
+  .section-sub {
+    color: var(--muted);
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .res-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .res-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+  }
+  .res-card.yt::before { background: #c94a1a; }
+  .res-card.pod::before { background: #6b4fbb; }
+  .res-type {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .res-card.yt .res-type { color: #c94a1a; }
+  .res-card.pod .res-type { color: #6b4fbb; }
+  .res-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+  }
+  .res-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .res-tag {
+    display: inline-block;
+    margin-top: 10px;
+    background: var(--border);
+    border-radius: 20px;
+    padding: 2px 10px;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  /* WEEK SECTIONS */
+  .week-block {
+    padding: 40px 40px 10px;
+  }
+  .week-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .week-num {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    color: white;
+    flex-shrink: 0;
+  }
+  .w1 .week-num { background: var(--week1); }
+  .w2 .week-num { background: var(--week2); }
+  .w3 .week-num { background: var(--week3); }
+  .w4 .week-num { background: var(--week4); }
+  .week-info h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    line-height: 1.2;
+  }
+  .week-info span {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* DAY CARDS */
+  .days-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 14px;
+    padding-bottom: 30px;
+  }
+  .day-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: default;
+  }
+  .day-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+  }
+  .day-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .day-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .day-check {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+  .day-check.done {
+    background: #2a7a4a;
+    border-color: #2a7a4a;
+    color: white;
+  }
+  .day-check.done::after { content: '✓'; font-size: 11px; }
+  .day-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1rem;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .day-resource {
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .day-task {
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.5;
+    border-top: 1px solid var(--border);
+    padding-top: 8px;
+    margin-top: 6px;
+  }
+  .day-task strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* DIVIDER */
+  .divider {
+    margin: 0 40px;
+    border: none;
+    border-top: 1px solid var(--border);
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 40px;
+    color: var(--muted);
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+  }
+  footer strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  @media (max-width: 600px) {
+    header, .resources, .week-block { padding-left: 20px; padding-right: 20px; }
+    .divider { margin: 0 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-label">Lernprogramm · Marketing & Werbung</div>
+  <h1>30 Tage zum<br><em>Marketing-Experten</em></h1>
+  <p>Ein strukturierter Tagesplan mit den besten YouTube-Kanälen und Podcasts — von den Grundlagen bis zur Praxis.</p>
+  <div class="header-badges">
+    <span class="badge">📺 YouTube</span>
+    <span class="badge">🎙️ Podcasts</span>
+    <span class="badge">✍️ Tägliche Aufgaben</span>
+    <span class="badge">30 Tage Programm</span>
+  </div>
+</header>
+
+<!-- RESSOURCEN -->
+<section class="resources">
+  <div class="section-sub">Deine Lernquellen</div>
+  <div class="section-title">YouTube-Kanäle & Podcasts</div>
+  <div class="resources-grid">
+
+    <div class="res-card yt">
+      <div class="res-type">📺 YouTube</div>
+      <div class="res-name">Neil Patel</div>
+      <div class="res-desc">SEO, Content & Wachstumsstrategien. Ideal für Anfänger — komplexe Themen einfach erklärt. 2–3 Videos pro Woche.</div>
+      <span class="res-tag">Grundlagen · SEO · Wachstum</span>
+    </div>
+
+    <div class="res-card yt">
+      <div class="res-type">📺 YouTube</div>
+      <div class="res-name">HubSpot Marketing</div>
+      <div class="res-desc">Professionelles Inbound-Marketing. Perfekte Grundlagen in klarer Struktur — vom Einsteiger bis zum Profi.</div>
+      <span class="res-tag">Inbound · Strategie · B2B</span>
+    </div>
+
+    <div class="res-card yt">
+      <div class="res-type">📺 YouTube</div>
+      <div class="res-name">GaryVee (Gary Vaynerchuk)</div>
+      <div class="res-desc">Social Media, Personal Branding & Unternehmergeist. Motivierend, direkt und immer am Puls der Zeit.</div>
+      <span class="res-tag">Social Media · Branding · Mindset</span>
+    </div>
+
+    <div class="res-card yt">
+      <div class="res-type">📺 YouTube</div>
+      <div class="res-name">Semrush</div>
+      <div class="res-desc">SEO, PPC und Cross-Channel-Strategie. Mit Gastexperten und Live-Sessions — sehr praxisnah.</div>
+      <span class="res-tag">SEO · PPC · Analytics</span>
+    </div>
+
+    <div class="res-card yt">
+      <div class="res-type">📺 YouTube</div>
+      <div class="res-name">Social Media Examiner</div>
+      <div class="res-desc">Von Instagram-Hashtags bis YouTube-Ads. Einfach und effektiv für Einsteiger und Fortgeschrittene.</div>
+      <span class="res-tag">Social Ads · Plattformen</span>
+    </div>
+
+    <div class="res-card pod">
+      <div class="res-type">🎙️ Podcast</div>
+      <div class="res-name">Marketing School</div>
+      <div class="res-desc">Neil Patel & Eric Siu täglich. 10 Minuten — SEO, Content, Social, E-Mail. Perfekt für den Morgen.</div>
+      <span class="res-tag">Täglich · 10 Min · Alles</span>
+    </div>
+
+    <div class="res-card pod">
+      <div class="res-type">🎙️ Podcast</div>
+      <div class="res-name">Social Media Marketing Podcast</div>
+      <div class="res-desc">Michael Stelzner (Social Media Examiner) — wöchentliche Experteninterviews, seit 2012 aktiv.</div>
+      <span class="res-tag">Wöchentlich · 45 Min</span>
+    </div>
+
+    <div class="res-card pod">
+      <div class="res-type">🎙️ Podcast</div>
+      <div class="res-name">Marketing Over Coffee</div>
+      <div class="res-desc">Klassische Strategie trifft aktuelle Taktiken. Konstant und verlässlich — für Strategen.</div>
+      <span class="res-tag">Wöchentlich · 45 Min</span>
+    </div>
+
+    <div class="res-card pod">
+      <div class="res-type">🎙️ Podcast</div>
+      <div class="res-name">The CMO Podcast</div>
+      <div class="res-desc">Interviews mit CMOs globaler Marken. Tiefe Einblicke in Marketing-Führung und Markenstrategie.</div>
+      <span class="res-tag">Führung · Markenstrategie</span>
+    </div>
+
+    <div class="res-card pod">
+      <div class="res-type">🎙️ Podcast</div>
+      <div class="res-name">Perpetual Traffic</div>
+      <div class="res-desc">Bezahlte Werbung, Facebook Ads, Google Ads — sehr detailliert und umsetzungsorientiert.</div>
+      <span class="res-tag">Paid Ads · Facebook · Google</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- WOCHE 1 -->
+<hr class="divider">
+<section class="week-block w1">
+  <div class="week-header">
+    <div class="week-num">W1</div>
+    <div class="week-info">
+      <span>Tage 1–7</span>
+      <h2>Fundament — Grundlagen & Denken wie ein Marketer</h2>
+    </div>
+  </div>
+  <div class="days-grid">
+
+    <div class="day-card">
+      <div class="day-top"><span class="day-label">Tag 1</span><div class="day-check" onclick="this.classList.toggle('done')"></div></div>
+      <div class="day-title">Was ist Marketing? Das große Bild</div>
+      <div class="day-resource">📺 Neil Patel — „What is Digital Marketing?"</div>
+      <div class="day-task"><strong>Aufgabe:</strong> Definiere in 3 Sätzen, was Marketing für dich bedeutet. Schreib es auf.</div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-top"><span class="day-label">Tag 2</span><div class="day-check" onclick="this.classList.toggle('done')"></div></div>
+      <div class="day-title">Zielgruppenanalyse & Buyer Persona</div>
+      <div class="day-resource">📺 HubSpot — „How to Create a Buyer Persona"</div>
+      <div class="day-task"><strong>Aufgabe:</strong> Erstelle eine Buyer Persona für ein Produkt deiner Wahl (Name, Alter, Ziele, Probleme).</div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-top"><span class="day-label">Tag 3</span><div class="day-check" onclick="this.classList.toggle('done')"></div></div>
+      <div class="day-title">Die 4 Ps des Marketing-Mix</div>
+      <div class="day-resource">🎙️ Marketing School — Folgen zu „Marketing Fundamentals"</div>
+      <div class="day-task"><strong>Aufgabe:</strong> Analysiere eine bekannte Marke (z.B. Apple, Nike) anhand der 4 Ps.</div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-top"><span class="day-label">Tag 4</span><div class="day-check" onclick="this.classList.toggle('done')"></div></div>
+      <div class="day-title">Positionierung & USP verstehen</div>
+      <div class="day-resource">📺 GaryVee — „How to Position Your Brand"</div>
+      <div class="day-task"><strong>Aufgabe:</strong> Schreibe den USP von 3 Marken (1 Satz je). Was macht sie unverwechselbar?</div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-top"><span class="day-label">Tag 5</span><div class="day-check" onclick="this.classList.toggle('done')"></div></div>
+      <div class="day-title">Markenidentität & Branding-Grundlagen</div>
+      <div class="day-resource">📺 HubSpot — „Branding 101"</div>
+      <div class="day-task"><strong>Aufgabe:</strong> Beschreibe die Brand Identity deiner Lieblingsmarke: Farben, Ton, Werte, Logo-Aussage.</div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-top"><span class="day-label">Tag 6</span><div class="day-check" onclick="this.classList.toggle('done')"></div></div>
+      <div class="day-title">Consumer Psychology & Kaufmotive</div>
+      <div class="day-resource">🎙️ Marketing Over Coffee — Episode zu Konsumentenverhalten</div>
+      <div class="day-task"><strong>Aufgabe:</strong> Analysiere 2 Werbeanzeigen: Welche psychologischen Trigger werden eingesetzt?</div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-top"><span class="day-label">Tag 7</span><div class="day-check" onclick="this.classList.toggle('done')"></div></div>
+      <div class="day-title">Woche 1 Review & Reflexion</div>
+      <div class="day-resource">🎙️ Marketing School — beliebige Folge zur Wiederholung</div>
+      <div class="day-task"><strong>Aufgabe:</strong> Schreibe 5 Erkenntnisse der Woche auf. Was war neu? Was war überraschend?</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WOCHE 2 -->
+<hr class="divider">
+<section class="week-block w2">
+  <div class="week-header">
+    <div class="week-num">W2</div>
+    <div class="week-info">
+      <span>Tage 8–14</span>
+      <h2>Digitales Marketing — Kanäle, Content & SEO</h2>
+    </div>
+  </div>
+  <div class="days-grid">
+
+    <div class="day-card">
+      <div class="day-top"><span class="day-label">Tag 8</span><div class="day-check" onclick="this.classList.toggle('done')"></div></div>
+      <div class="day-title">Content Marketing — Die Strategie dahinter</div>
+      <div class="day-resource">📺 Neil Patel — „Content Marketing Strategy"</div>
+      <div class="day-task"><strong>Aufgabe:</strong> Plane 5 Content-Ideen für eine fiktive Marke (Format + Thema + Plattform).</div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-top"><span class="day-label">Tag 9</span><div class="day-check" onclick="this.classList.toggle('done')"></div></div>
+      <div class="day-title">SEO-Grundlagen: Sichtbarkeit aufbauen</div>
+      <div class="day-resource">📺 Semrush — „Keyword Research for Beginners"</div>
+      <div class="day-task"><strong>Aufgabe:</strong> Finde 10 Keywords für ein Thema deiner Wahl mit Google Autocomplete oder Ubersuggest.</div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-top"><span class="day-label">Tag 10</span><div class="day-check" onclick="this.classList.toggle('done')"></div></div>
+      <div class="day-title">Social Media Marketing — Welche Plattform wofür?</div>
+      <div class="day-resource">📺 Social Media Examiner — Plattformvergleich</div>
+      <div class="day-task"><strong>Aufgabe:</strong> Erstelle eine Tabelle: Welche Zielgruppe nutzt welche Plattform, und welches Format funktioniert?</div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-top"><span class="day-label">Tag 11</span><div class="day-check" onclick="this.classList.toggle('done')"></div></div>
+      <div class="day-title">E-Mail-Marketing — Das mächtigste Werkzeug</div>
+      <div class="day-resource">📺 HubSpot — „Email Marketing for Beginners"</div>
+      <div class="day-task"><strong>Aufgabe:</strong> Schreibe eine Welcome-E-Mail für eine fiktive Marke. Betreffzeile + 3 Absätze.</div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-top"><span class="day-label">Tag 12</span><div class="day-check" onclick="this.classList.toggle('done')"></div></div>
+      <div class="day-title">Die Customer Journey & Touchpoints</div>
+      <div class="day-resource">🎙️ Social Media Marketing Podcast — Customer Experience</div>
+      <div class="day-task"><strong>Aufgabe:</strong> Zeichne die Customer Journey einer Marke (Awareness → Kauf → Loyalität) mit allen Touchpoints.</div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-top"><span class="day-label">Tag 13</span><div class="day-check" onclick="this.classList.toggle('done')"></div></div>
+      <div class="day-title">Storytelling in der Werbung</div>
+      <div class="day-resource">📺 GaryVee — „The Power of Storytelling in Marketing"</div>
+      <div class="day-task"><strong>Aufgabe:</strong> Schreibe eine kurze Brand-Story (150 Wörter) für ein Produkt. Problem → Lösung → Emotion.</div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-top"><span class="day-label">Tag 14</span><div class="day-check" onclick="this.classList.toggle('done')"></div></div>
+      <div class="day-title">Woche 2 Review & Mini-Projekt</div>
+      <div class="day-resource">🎙️ Marketing Over Coffee — Strategie-Episode</div>
+      <div class="day-task"><strong>Aufgabe:</strong> Entwirf eine einfache digitale Marketingstrategie für eine Marke deiner Wahl (Kanäle + Content + Ziel).</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WOCHE 3 -->
+<hr class="divider">
+<section class="week-block w3">
+  <div class="week-header">
+    <div class="week-num">W3</div>
+    <div class="week-info">
+      <span>Tage 15–21</span>
+      <h2>Werbung & Paid Media — Anzeigen, die wirken</h2>
+    </div>
+  </div>
+  <div class="days-grid">
+
+    <div class="day-card">
+      <div class="day-top"><span class="day-label">Tag 15</span><div class="day-check" onclick="this.classList.toggle('done')"></div></div>
+      <div class="day-title">Einführung in bezahlte Werbung (Paid Ads)</div>
+      <div class="day-resource">🎙️ Perpetual Traffic — „Intro to Paid Traffic"</div>
+      <div class="day-task"><strong>Aufgabe:</strong> Erkläre den Unterschied zwischen Awareness-, Consideration- und Conversion-Kampagnen.</div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-top"><span class="day-label">Tag 16</span><div class="day-check" onclick="this.classList.toggle('done')"></div></div>
+      <div class="day-title">Google Ads — Suchmaschinenwerbung verstehen</div>
+      <div class="day-resource">📺 Semrush — „Google Ads for Beginners"</div>
+      <div class="day-task"><strong>Aufgabe:</strong> Schreibe 3 Google-Ad-Texte (Headline + 2 Zeilen) für ein Produkt deiner Wahl.</div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-top"><span class="day-label">Tag 17</span><div class="day-check" onclick="this.classList.toggle('done')"></div></div>
+      <div class="day-title">Facebook & Instagram Ads — Meta-Universum</div>
+      <div class="day-resource">📺 Social Media Examiner — „Facebook Ads Tutorial"</div>
+      <div class="day-task"><strong>Aufgabe:</strong> Beschreibe ein vollständiges Meta-Ad-Setup: Zielgruppe, Format, Budget, Ziel.</div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-top"><span class="day-label">Tag 18</span><div class="day-check" onclick="this.classList.toggle('done')"></div></div>
+      <div class="day-title">Copywriting — Texte, die verkaufen</div>
+      <div class="day-resource">📺 Neil Patel — „Copywriting Tips That Convert"</div>
+      <div class="day-task"><strong>Aufgabe:</strong> Schreibe eine Landingpage-Headline + Subheadline + CTA für ein Produkt. Teste 2 Versionen.</div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-top"><span class="day-label">Tag 19</span><div class="day-check" onclick="this.classList.toggle('done')"></div></div>
+      <div class="day-title">Call to Action — Warum Menschen klicken</div>
+      <div class="day-resource">🎙️ Marketing School — „CTA Optimization"</div>
+      <div class="day-task"><strong>Aufgabe:</strong> Sammle 10 CTAs aus Webseiten und Anzeigen. Kategorisiere sie: Dringlichkeit, Nutzen, Neugier.</div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-top"><span class="day-label">Tag 20</span><div class="day-check" onclick="this.classList.toggle('done')"></div></div>
+      <div class="day-title">Influencer Marketing & UGC</div>
+      <div class="day-resource">📺 GaryVee — „Creator Economy & Influencer Marketing"</div>
+      <div class="day-task"><strong>Aufgabe:</strong> Entwirf eine Influencer-Kampagne: Nische, Plattform, Art der Zusammenarbeit, Ziel.</div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-top"><span class="day-label">Tag 21</span><div class="day-check" onclick="this.classList.toggle('done')"></div></div>
+      <div class="day-title">Woche 3 Review — Kampagne konzipieren</div>
+      <div class="day-resource">🎙️ Perpetual Traffic — beliebige Praxis-Folge</div>
+      <div class="day-task"><strong>Aufgabe:</strong> Konzipiere eine vollständige Werbekampagne (Ziel, Zielgruppe, Kanäle, Botschaft, Budget-Idee).</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WOCHE 4 -->
+<hr class="divider">
+<section class="week-block w4">
+  <div class="week-header">
+    <div class="week-num">W4</div>
+    <div class="week-info">
+      <span>Tage 22–30</span>
+      <h2>Messung, Strategie & Meisterschaft</h2>
+    </div>
+  </div>
+  <div class="days-grid">
+
+    <div class="day-card">
+      <div class="day-top"><span class="day-label">Tag 22</span><div class="day-check" onclick="this.classList.toggle('done')"></div></div>
+      <div class="day-title">KPIs & Analytics — Was zählt wirklich?</div>
+      <div class="day-resource">📺 Semrush — „Marketing KPIs Explained"</div>
+      <div class="day-task"><strong>Aufgabe:</strong> Definiere 5 KPIs für eine E-Commerce-Marke. Erkläre, was jeder misst und warum er wichtig ist.</div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-top"><span class="day-label">Tag 23</span><div class="day-check" onclick="this.classList.toggle('done')"></div></div>
+      <div class="day-title">A/B-Testing & Conversion-Optimierung</div>
+      <div class="day-resource">📺 Neil Patel — „A/B Testing Guide"</div>
+      <div class="day-task"><strong>Aufgabe:</strong> Entwirf einen A/B-Test für eine Landingpage: Was testest du, wie lange, und wie entscheidest du?</div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-top"><span class="day-label">Tag 24</span><div class="day-check" onclick="this.classList.toggle('done')"></div></div>
+      <div class="day-title">Marketing-Funnel & Automatisierung</div>
+      <div class="day-resource">🎙️ The CMO Podcast — Funnel-Strategie Episode</div>
+      <div class="day-task"><strong>Aufgabe:</strong> Zeichne einen kompletten Marketing-Funnel mit 3 Automatisierungsschritten (Trigger + Aktion).</div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-top"><span class="day-label">Tag 25</span><div class="day-check" onclick="this.classList.toggle('done')"></div></div>
+      <div class="day-title">Konkurrenzanalyse & Marktforschung</div>
+      <div class="day-resource">📺 Semrush — „Competitor Analysis Tutorial"</div>
+      <div class="day-task"><strong>Aufgabe:</strong> Analysiere 2 Konkurrenten einer Marke: Positionierung, Kanäle, Stärken, Schwächen.</div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-top"><span class="day-label">Tag 26</span><div class="day-check" onclick="this.classList.toggle('done')"></div></div>
+      <div class="day-title">Personal Branding — Du als Marke</div>
+      <div class="day-resource">📺 GaryVee — „Building Your Personal Brand in 2026"</div>
+      <div class="day-task"><strong>Aufgabe:</strong> Definiere deine persönliche Marke: Positionierung, Nische, Plattform, Inhalt. Was willst du repräsentieren?</div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-top"><span class="day-label">Tag 27</span><div class="day-check" onclick="this.classList.toggle('done')"></div></div>
+      <div class="day-title">AI & die Zukunft des Marketings</div>
+      <div class="day-resource">🎙️ Marketing School — „AI in Marketing 2026"</div>
+      <div class="day-task"><strong>Aufgabe:</strong> Liste 5 Wege auf, wie du KI in deinen Marketingalltag einbauen kannst (Tools + Anwendungsfall).</div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-top"><span class="day-label">Tag 28</span><div class="day-check" onclick="this.classList.toggle('done')"></div></div>
+      <div class="day-title">Marketingstrategie von A bis Z</div>
+      <div class="day-resource">🎙️ The CMO Podcast — Strategie-Gesamtbild</div>
+      <div class="day-task"><strong>Aufgabe:</strong> Schreibe eine einseitige Marketingstrategie für ein fiktives Startup. Alle 10 Bausteine anwenden.</div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-top"><span class="day-label">Tag 29</span><div class="day-check" onclick="this.classList.toggle('done')"></div></div>
+      <div class="day-title">Präsentation deiner Arbeit</div>
+      <div class="day-resource">📺 HubSpot — „How to Present a Marketing Strategy"</div>
+      <div class="day-task"><strong>Aufgabe:</strong> Bereite eine 5-minütige Präsentation deiner 30-Tage-Erkenntnisse vor — als wärst du vor einem Kunden.</div>
+    </div>
+
+    <div class="day-card" style="border-color: var(--gold); background: #fffdf5;">
+      <div class="day-top"><span class="day-label" style="color: var(--gold);">Tag 30 🏆</span><div class="day-check" onclick="this.classList.toggle('done')"></div></div>
+      <div class="day-title" style="font-size:1.1rem;">Abschlusstag — Dein Marketing-Manifest</div>
+      <div class="day-resource" style="color: var(--gold);">🎙️ + 📺 Deine liebste Episode noch einmal</div>
+      <div class="day-task"><strong>Aufgabe:</strong> Schreibe dein persönliches Marketing-Manifest: Was sind deine 5 Kernprinzipien? Was nimmst du in die Praxis mit? Und was ist dein nächster Schritt?</div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>Täglich <strong>30–60 Minuten</strong> genügen. Konsistenz schlägt Intensität.<br>
+  Klicke auf den Kreis bei jedem Tag, um ihn als erledigt zu markieren.<br><br>
+  <strong>Viel Erfolg auf deinen 30 Tagen zum Marketing-Experten.</strong></p>
+</footer>
+
+</body>
+</html>
